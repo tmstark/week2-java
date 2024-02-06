@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Greeting Script</title>
+    <style>
+        body {
+            background-color: white;
+        }
+    </style>
+    <script>
+        function displayGreeting() {
+            var name = document.getElementById("name").value;
+
+            if (name.trim() !== "") {
+                var greetingMessage = "Hello, " + name + "!";
+                alert(greetingMessage);
+                
+                var randomColor = getRandomColor();
+                document.body.style.backgroundColor = randomColor;
+            } else {
+                alert("Please enter your name.");
+            }
+
+            return false; 
+        }
+
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return displayGreeting()">
+        Enter your name: <input type="text" id="name">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
